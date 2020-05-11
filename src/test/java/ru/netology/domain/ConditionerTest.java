@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConditionerTest {
+    Conditioner conditioner = new Conditioner();
 
     @Test
     public void shouldGetAndSet() {
-        Conditioner conditioner = new Conditioner();
         String expected = "Кондишн";
 
         assertNull(conditioner.getName());
@@ -18,7 +18,6 @@ class ConditionerTest {
 
     @Test
     public void shouldIncreaseTemperature() {
-        Conditioner conditioner = new Conditioner();
         int actual = 20;
         int expected = 21;
 
@@ -29,7 +28,6 @@ class ConditionerTest {
 
     @Test
     public void shouldIncreaseMaxTemperature() {
-        Conditioner conditioner = new Conditioner();
         int actual = 30;
         int expected = 30;
 
@@ -40,7 +38,6 @@ class ConditionerTest {
 
     @Test
     public void shouldDecreaseTemperature() {
-        Conditioner conditioner = new Conditioner();
         int actual = 20;
         int expected = 19;
 
@@ -51,7 +48,6 @@ class ConditionerTest {
 
     @Test
     public void shouldDecreaseMinTemperature() {
-        Conditioner conditioner = new Conditioner();
         int actual = 10;
         int expected = 10;
 
@@ -62,7 +58,6 @@ class ConditionerTest {
 
     @Test
     public void shouldMaxCurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
         int actual = 31;
 
         conditioner.setCurrentTemperature(actual);
@@ -71,8 +66,15 @@ class ConditionerTest {
 
     @Test
     public void shouldMinCurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
         int actual = 9;
+
+        conditioner.setCurrentTemperature(actual);
+        assertNotEquals(conditioner.getMinTemperature(), conditioner.getCurrentTemperature());
+    }
+
+    @Test
+    public void shouldBelowZeroCurrentTemperature() {
+        int actual = -5;
 
         conditioner.setCurrentTemperature(actual);
         assertNotEquals(conditioner.getMinTemperature(), conditioner.getCurrentTemperature());
