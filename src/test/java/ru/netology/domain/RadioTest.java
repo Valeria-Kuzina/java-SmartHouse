@@ -68,7 +68,7 @@ class RadioTest {
         int actual = -5;
 
         radio.setStationNumber(actual);
-        assertNotEquals(radio.getFirstStation(), radio.getStationNumber());
+        assertEquals(radio.getFirstStation(), radio.getStationNumber());
     }
 
     @Test
