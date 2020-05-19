@@ -4,9 +4,13 @@ public class Radio {
     private int stationNumber;
     private int volume;
     private int minVolume = 0;
-    private int maxVolume = 10;
+    private int maxVolume = 100;
     private int firstStation = 0;
     private int lastStation = 9;
+
+    public Radio(int lastStation) {
+        this.lastStation = lastStation;
+    }
 
     public void next() {
         if (stationNumber == lastStation) {
